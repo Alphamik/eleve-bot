@@ -18,7 +18,7 @@ const prefix = '!!'
 //Etat du bot
 bot.on('ready', () => {
    console.log(`(1) Logged in as ${bot.user.tag}!`);
-   bot.user.setGame('préparer une salade de fruits || !!help');
+   bot.user.setGame('donner cours d\'italien || !!help');
    bot.setMaxListeners(1);
   });
 
