@@ -49,6 +49,17 @@ bot.on('message', function(message) {
 	
 	}
 	
+	 if (message.content.startsWith(prefix + 'say')) {
+		
+		let args = message.content.split(" ").slice(1);
+	
+		message.delete()
+		 var embed = new Discord.RichEmbed()
+		.setColor("#F39C12")
+		.setDescription("**" + message.author.username + "**" + " a dit: " + " " + args.join(" "))
+		message.channel.send(embed)
+	}
+	
 });
     
     bot.on('guildMemberAdd', member => {
