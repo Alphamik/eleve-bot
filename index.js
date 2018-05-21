@@ -19,8 +19,7 @@ const prefix = '!!'
 //Etat du bot
 bot.on('ready', () => {
    console.log(`(1) Logged in as ${bot.user.tag}!`);
-   bot.user.setGame('donner cours d\'italien || !!help');
-   bot.setMaxListeners(1);
+   bot.user.setActivity(`donner cours d'italien dans ${bot.guilds.size} serveur || !!help`, {type: "PLAY"});
   });
 
 
