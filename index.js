@@ -74,7 +74,7 @@ var embed = new Discord.RichEmbed()
 var embed2 = new Discord.RichEmbed()
 .setColor("#2980b9")
 .setImage(message.author.imageURL)
-if(message.channels.type === 'dm') return bot.channels.get('447993889882767360').sendMessage(embed); return bot.channels.get('447993889882767360').sendMessage(embed2);
+if(message.channels.type === 'dm') return bot.channels.get('447993889882767360').sendMessage(embed + embed2);
 })
  
 
