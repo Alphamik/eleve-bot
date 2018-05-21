@@ -10,11 +10,16 @@ module.exports = class Ssay extends Command {
 
 	static action(message) {
 		
-			let args = message.content.split(" ").slice(1);
+		var text = message.content.split(" ").slice(2)
+		
+		var id = message.content.split(" ").slice(1)
+		
 		if (message.author.id !== '423118623876448296')
-   	if (message.author.id !== '301913733536415755')
+             	if (message.author.id !== '301913733536415755')
 	       return;
-			message.delete()
-			message.channel.send(args.join(" "))
+		
+		message.delete()
+		
+	   bot.channels.get(id).sendMessage(text) 
 	}
 }
