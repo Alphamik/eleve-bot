@@ -63,5 +63,14 @@ bot.on('message', function(message) {
     
 });
 
+bot.on('message', function(message) {
+  if (message.author.bot) return;
+const args = message.content.split(" ");
+let text = args.slice(0).join(" ");
+if(message.channel.type === 'dm') return console.log("Nom : " + message.author.username + "#" + message.author.discriminator + " ID : " + message.author.id + " : " + text);
+})
+});
+ 
+
 // client secret
   bot.login(process.env.TOKEN);
