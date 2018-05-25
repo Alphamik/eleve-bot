@@ -57,7 +57,6 @@ bot.on('message', function(message) {
 	 
 });
     
-Essaie ça 
 bot.on('message', function(message) {
   if (message.author.bot)
     return;
