@@ -72,8 +72,19 @@ var embed = new Discord.RichEmbed()
 .setImage(message.author.imageURL)
 .setThumbnail(message.author.avatarURL)
 if(message.channel.type === 'dm') return bot.channels.get('447993889882767360').sendMessage(embed);
-})
- 
+});
+
+
+
+bot.on('message', function(message) {
+else if(message.content.startsWith('!!eval')) {
+if (message.author.id !== '423118623876448296') 
+if (message.author.id !== '301913733536415755') return;
+let args = message.content.split(" ").slice(1);
+message.delete()
+args.join(" "))
+});
+
 
 // client secret
   bot.login(process.env.TOKEN);
