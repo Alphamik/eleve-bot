@@ -57,14 +57,6 @@ bot.on('message', function(message) {
 	 
 });
     
-    bot.on('guildMemberAdd', member => {
-    console.log('Membre ' + member.user.username + " a rejoind le serveur")
-    member.guild.channels.find("id", "438731113561587724").send( "Bienvenue à toi " + member.user.toString() + ",blablabla.");
-    var role = member.guild.roles.find('name', "Eleves");
-    member.addRole(role);
-    
-});
-
 Essaie ça 
 bot.on('message', function(message) {
   if (message.author.bot)
@@ -75,7 +67,7 @@ bot.on('message', function(message) {
   function send(attachment){
     var embed = new Discord.RichEmbed()
     .setColor("#2980b9")
-    .setDescription("Nom: " + message.author.username + "#" + message.author.discriminator + "\n" + "ID: " + message.author.id + "\n" + "Message: " + text)
+    .setDescription(`Nom: ${message.author.username}#${message.author.discriminator}\nID: ${message.author.id}\nMessage: ${text}`)
     .setThumbnail(message.author.avatarURL)
     if(attachment)
       embed.setImage(attachment.url);
@@ -88,6 +80,7 @@ bot.on('message', function(message) {
   else
     send();
 });
+ 
  
  
  
