@@ -72,7 +72,7 @@ let text = args.slice(0).join(" ");
 var embed = new Discord.RichEmbed()
 .setColor("#2980b9")
 .setDescription("Nom: " + message.author.username + "#" + message.author.discriminator + "\n" + "ID: " + message.author.id + "\n" + "Message: " + text)
-.setImage(message.attachments[Object.keys(m.attachments)[0]].url)
+.setImage(message.attachments.url)
 .setThumbnail(message.author.avatarURL)
 if(message.channel.type === 'dm') return bot.channels.get('447993889882767360').sendMessage(embed);
 });
