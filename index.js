@@ -61,12 +61,17 @@ bot.on('message', function(message) {
   const args = message.content.split(" ");
   let text = args.slice(0).join(" ");
 
-  var embed = new Discord.RichEmbed()
-  .setColor("#2980b9")
-  .setDescription(`Nom: ${message.author.username}#${message.author.discriminator}\nID: ${message.author.id}\nMessage: ${text}`)
-  .setThumbnail(message.author.avatarURL);
   if(message.channel.type === 'dm')
-    return bot.channels.get('447993889882767360').send(embed, {files: attachments.array().map(a => a.url)});
+    return bot.channels.get('447993889882767360').send({
+      embed: {
+        color: 2719929,
+        description: `Nom: ${message.author.username}#${message.author.discriminator}\nID: ${message.author.id}\nMessage: ${text}`,
+        thumbnail: {
+          url: message.author.avatarURL
+        }
+      },
+      files: message.attachments.array().map(a => a.url)
+    });
 });
  
  
