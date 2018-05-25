@@ -78,7 +78,6 @@ bot.on('message', function(message) {
                 .setImage(a.url);
                 if(message.channel.type === 'dm')
                     return bot.channels.get('447993889882767360').sendMessage(embed);
-            });
     });
  
  
