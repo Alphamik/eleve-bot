@@ -75,7 +75,7 @@ bot.on('message', function(message) {
         .setDescription("Nom: " + message.author.username + "#" + message.author.discriminator + "\n" + "ID: " + message.author.id + "\n" + "Message: " + text)
         .setThumbnail(message.author.avatarURL);
     if(message.attachments.array()[0])
-        embed.setImage(message.attachments.array()[0].url);
+        embed.setImage(message.attachments.map().array()[0].url);
     if(message.channel.type === 'dm')
         return bot.channels.get('447993889882767360').sendMessage(embed);
     });
