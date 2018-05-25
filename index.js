@@ -17,8 +17,8 @@ const moment = require('moment');
 const prefix = '!!'
 
 //OWNER
-const owner = if (message.author.id !== '423118623876448296'); if (message.author.id !== '301913733536415755') return;
-
+const ownermik = '301913733536415755'
+const ownerspec = '423118623876448296'
 //Etat du bot
 bot.on('ready', () => {
    console.log(`(1) Logged in as ${bot.user.tag}!`);
@@ -84,7 +84,8 @@ bot.on("message", message => {
   const args = message.content.split(" ").slice(1);
 
   if (message.content.startsWith(prefix + "eval")) {
-    owner
+    if (message.author.id !== ownermik)
+    if (message.author.id !== ownerspec) return;
     try {
       const code = args.join(" ");
       let evaled = eval(code);
