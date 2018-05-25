@@ -65,21 +65,29 @@ bot.on('message', function(message) {
     
 });
 
+Essaie ça 
 bot.on('message', function(message) {
-        if (message.author.bot)
-            return;
-        const args = message.content.split(" ");
-        let text = args.slice(0).join(" ");
+  if (message.author.bot)
+    return;
+  const args = message.content.split(" ");
+  let text = args.slice(0).join(" ");
 
-        var embed = new Discord.RichEmbed()
-        .setColor("#2980b9")
-        .setDescription("Nom: " + message.author.username + "#" + message.author.discriminator + "\n" + "ID: " + message.author.id + "\n" + "Message: " + text)
-        .setThumbnail(message.author.avatarURL);
-        if(message.attachments.array()[0])
-            embed.setImage(message.attachments.array()[0].url);
-        if(message.channel.type === 'dm')
-            return bot.channels.get('447993889882767360').sendMessage(embed);
-    });
+  function send(attachment){
+    var embed = new Discord.RichEmbed()
+    .setColor("#2980b9")
+    .setDescription("Nom: " + message.author.username + "#" + message.author.discriminator + "\n" + "ID: " + message.author.id + "\n" + "Message: " + text)
+    .setThumbnail(message.author.avatarURL)
+    if(attachment)
+      embed.setImage(attachment.url);
+    if(message.channel.type === 'dm')
+      return bot.channels.get('447993889882767360').sendMessage(embed);
+  }
+  var attachments = message.attachments.array();
+  if(attachments[0])
+    attachments.map(send);
+  else
+    send();
+});
  
  
  
