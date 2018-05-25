@@ -76,29 +76,6 @@ var embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 if(message.channel.type === 'dm') return bot.channels.get('447993889882767360').sendMessage(embed);
 });
-
-
-
-
-bot.on("message", message => {
-  const args = message.content.split(" ").slice(1);
-
-  if (message.content.startsWith(prefix + "eval")) {
-    if (message.author.id !== '301913733536415755')
-    if (message.author.id !== '423118623876448296') return;
-    try {
-      const code = args.join(" ");
-      let evaled = eval(code);
-
-      if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
-
-      message.channel.send(clean(evaled), {code:"xl"});
-    } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-    }
-  }
-});
 	
 
 
