@@ -16,6 +16,9 @@ const moment = require('moment');
 //PREFIX
 const prefix = '!!'
 
+//OWNER
+const owner = if (message.author.id !== '423118623876448296'); if (message.author.id !== '301913733536415755') return;
+
 //Etat du bot
 bot.on('ready', () => {
    console.log(`(1) Logged in as ${bot.user.tag}!`);
@@ -76,14 +79,25 @@ if(message.channel.type === 'dm') return bot.channels.get('447993889882767360').
 
 
 
-bot.on('message', function(message) {
-if(message.content.startsWith(prefix + 'eval')) {
-if (message.author.id !== '423118623876448296') 
-if (message.author.id !== '301913733536415755') return;
-let args = message.content.split(" ").slice(1);
-message.delete()
-args.join(" ")
-}); 
+
+bot.on("message", message => {
+  const args = message.content.split(" ").slice(1);
+
+  if (message.content.startsWith(prefix + "eval")) {
+    owner
+    try {
+      const code = args.join(" ");
+      let evaled = eval(code);
+
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
+
+      message.channel.send(clean(evaled), {code:"xl"});
+    } catch (err) {
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
+  }
+});
 	
 
 
