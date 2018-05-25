@@ -53,10 +53,8 @@ bot.on('message', function(message) {
 	    message.channel.send('https://skribbl.io/')
 	
 	}
-	
-	 
 });
-    
+	
 bot.on('message', function(message) {
   if (message.author.bot)
     return;
@@ -70,6 +68,7 @@ bot.on('message', function(message) {
   if(message.channel.type === 'dm')
     return bot.channels.get('447993889882767360').send(embed, {files: attachments.array().map(a => a.url)});
 });
+ 
  
  
  
