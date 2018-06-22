@@ -87,12 +87,10 @@ bot.on('message', function(message) {
  
  
 	
-client.on('messageReactionAdd', (reaction, user) => {
-    if (reaction.emoji.name === '🙂')
-        message.member.addRole(message.member.guild.roles.find('name', 'issou'));
-});
+//client.on('messageReactionAdd', (reaction, user) => {
+    //if (reaction.emoji.name === '🙂')
+        //message.member.addRole(message.member.guild.roles.find('name', 'issou'));
+//});
 
 // client secret
   bot.login(process.env.TOKEN);
-
-//if (message.attachments) message.channel.send(message.attachments[Object.keys(m.attachments)[0]].url); 
